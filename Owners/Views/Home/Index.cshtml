@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="min-width: 600px" ng-app="OwnersApp">
+
+<div ng-view></div>
+
+<script src="/Scripts/angular.min.js"></script>
+<script src="/Scripts/angular-route.min.js"></script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/OwnersApp")
+
+</body>
+</html>

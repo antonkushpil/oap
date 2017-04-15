@@ -1,0 +1,46 @@
+﻿<div class="container-fluid" id="main-container" ng-controller="PetsController" ng-init="init('@ViewBag.OwnerId')">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1 class="text-center">{{owner.Name}}' pets</h1>
+                <a href="/">Back to all Users</a>
+            </div>
+            <div class="row" id="form-group">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="row">
+                        <input type="text" class="form-control col-xs-4 pet-input" ng-model="petName" placeholder="Enter Pet's Name">
+                        <button class="btn btn-default input-btn" type="button" ng-click="addPet(petName)">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="table-group">
+                <div class="col-xs-12">
+                    <p>Total count: {{count}}</p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>
+                                Name
+                                <span class="glyphicon pull-right" ng-class="ascending ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-top'" ng-click="ascending=!ascending"></span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody ng-if="pets.length">
+                        <tr ng-repeat="pet in pets | orderBy: direction() | pagination: curPage * pageSize | limitTo: pageSize">
+                            <td>
+                                {{pet.Name}}
+                                <button class="btn btn-default" style="float: right" ng-click="deletePet(pet.Id)" ng-show="pet.Name">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center" id="pagination-grpoup" ng-if="pets.length">
+                        <div id="pagination-list" ng-repeat="i in numberOfPages()">
+                            <button id="pageButton" ng-click="openPage(i)" ng-disabled="curPage == i - 1">{{i}}{{i !== numberOfPages().length ? ',' : ''}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

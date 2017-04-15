@@ -1,0 +1,49 @@
+﻿<div class="container-fluid" id="main-container" ng-controller="OwnersController">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1 class="text-center">All Users</h1>
+            </div>
+            <div class="row" id="form-group">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="row">
+                        <input type="text" class="form-control col-xs-4 owner-input" ng-model="ownerName" placeholder="Enter Pet Owner's Name">
+                        <button class="btn btn-default input-btn" type="button" ng-click="addOwner(ownerName)">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="table-group">
+                <div class="col-xs-12">
+                    <p>Total count: {{count}}</p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="col-xs-6">
+                                Name
+                                <span class="glyphicon pull-right" ng-class="ascending ? 'glyphicon-triangle-bottom' : 'glyphicon-triangle-top'" ng-click="ascending=!ascending"></span>
+                            </th>
+                            <th class="col-xs-6">Pets count</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-if="owners.length">
+                        <tr ng-repeat="owner in owners | orderBy: direction() | pagination: curPage * pageSize | limitTo: pageSize">
+                            <td class="col-xs-6">
+                                <a class="black-button" href="/#!/pets/{{owner.Id}}">{{owner.Name}}</a>
+                            </td>
+                            <td class="col-xs-6">
+                                {{owner.Pets.length}}
+                                <button class="btn btn-default" style="float: right" ng-click="deleteOwner(owner.Id)" ng-show="owner.Name">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center" id="pagination-grpoup" ng-if="owners.length">
+                        <div id="pagination-list" ng-repeat="i in numberOfPages()">
+                            <button id="pageButton" ng-click="openPage(i)" ng-disabled="curPage == i - 1">{{i}}{{i !== numberOfPages().length ? ',' : ''}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

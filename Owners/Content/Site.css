@@ -1,0 +1,103 @@
+﻿body {
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-family: arial;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.black-button {
+    color: #000;
+}
+
+#pagination-list {
+    display: inline;
+}
+
+#pagination-grpoup {
+    margin-top: 10px;
+}
+
+#pageButton {
+    border: none;
+    background-color: Transparent;
+}
+
+.page-header {
+    border-bottom:none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pet-input {
+    width: 140px;
+    margin-left: 20px;
+}
+
+.owner-input {
+    width: 190px;
+}
+
+.input-btn, .owner-input {
+    margin-left: 20px;
+}
+
+#form-group {
+    padding-bottom: 20px;
+    margin: 20px 0 5px;
+    border-bottom: 1px solid #000;
+}
+
+#table-group {
+    margin: 0 10px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    background-color: rgb(238, 238, 238);
+}
+
+td, th {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    text-align: left;
+    padding: 8px;
+}
+
+thead {
+    background-color: rgb(204, 204, 204);
+}
+
+th {
+    height: 25px;
+}
+
+td {
+    height: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+}
+
+
